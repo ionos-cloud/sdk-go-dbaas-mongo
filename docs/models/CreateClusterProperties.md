@@ -7,7 +7,7 @@ The properties with all data needed to create a new MongoDB cluster.
 
 |Name | Type | Description | Notes|
 |------------ | ------------- | ------------- | -------------|
-|**TemplateID** | **string** | The unique ID of the template, which specifies the number of cores, storage size, and memory.  | |
+|**TemplateID** | **string** | The unique ID of the template, which specifies the number of cores, storage size, and memory. You cannot downgrade to a smaller template or minor edition (e.g. from business to playground). To get a list of all templates to confirm the changes use the /templates endpoint.  | |
 |**MongoDBVersion** | Pointer to **string** | The MongoDB version of your cluster. | [optional] |
 |**Instances** | **int32** | The total number of instances in the cluster (one primary and n-1 secondaries).  | |
 |**Connections** | [**[]Connection**](Connection.md) |  | |

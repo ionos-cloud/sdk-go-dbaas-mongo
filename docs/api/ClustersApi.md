@@ -7,6 +7,7 @@ All URIs are relative to *https://api.ionos.com/databases/mongodb*
 |[**ClustersDelete**](ClustersApi.md#ClustersDelete) | **Delete** /clusters/{clusterId} | Delete a Cluster|
 |[**ClustersFindById**](ClustersApi.md#ClustersFindById) | **Get** /clusters/{clusterId} | Get a cluster by id|
 |[**ClustersGet**](ClustersApi.md#ClustersGet) | **Get** /clusters | Get Clusters|
+|[**ClustersPatch**](ClustersApi.md#ClustersPatch) | **Patch** /clusters/{clusterId} | Patch a cluster|
 |[**ClustersPost**](ClustersApi.md#ClustersPost) | **Post** /clusters | Create a Cluster|
 
 
@@ -203,6 +204,75 @@ Other parameters are passed through a pointer to an apiClustersGetRequest struct
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+
+## ClustersPatch
+
+```go
+var result ClusterResponse = ClustersPatch(ctx, clusterId)
+                      .PatchClusterRequest(patchClusterRequest)
+                      .Execute()
+```
+
+Patch a cluster
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+
+    ionoscloud "github.com/ionos-cloud/sdk-go-dbaas-mongo"
+)
+
+func main() {
+    clusterId := "clusterId_example" // string | The unique ID of the cluster.
+    patchClusterRequest := *openapiclient.NewPatchClusterRequest() // PatchClusterRequest | Part of the cluster which should be modified.
+
+    configuration := ionoscloud.NewConfiguration("USERNAME", "PASSWORD", "TOKEN", "HOST_URL")
+    apiClient := ionoscloud.NewAPIClient(configuration)
+    resource, resp, err := apiClient.ClustersApi.ClustersPatch(context.Background(), clusterId).PatchClusterRequest(patchClusterRequest).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `ClustersApi.ClustersPatch``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", resp)
+    }
+    // response from `ClustersPatch`: ClusterResponse
+    fmt.Fprintf(os.Stdout, "Response from `ClustersApi.ClustersPatch`: %v\n", resource)
+}
+```
+
+### Path Parameters
+
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+|**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.|
+|**clusterId** | **string** | The unique ID of the cluster. | |
+
+### Other Parameters
+
+Other parameters are passed through a pointer to an apiClustersPatchRequest struct via the builder pattern
+
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **patchClusterRequest** | [**PatchClusterRequest**](PatchClusterRequest.md) | Part of the cluster which should be modified. | |
+
+### Return type
+
+[**ClusterResponse**](ClusterResponse.md)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 

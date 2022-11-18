@@ -8,6 +8,7 @@ The resource type.
 |COLLECTION |
 |CLUSTER |
 |USER |
+|SNAPSHOT |
 
 
 

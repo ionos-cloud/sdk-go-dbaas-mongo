@@ -8,7 +8,6 @@ Mongodb user properties.
 |Name | Type | Description | Notes|
 |------------ | ------------- | ------------- | -------------|
 |**Username** | **string** |  | |
-|**Database** | **string** | The user database to use for authentication. | |
 |**Password** | **string** |  | |
 |**Roles** | Pointer to [**[]UserRoles**](UserRoles.md) |  | [optional] |
 
@@ -33,26 +32,6 @@ and a boolean to check if the value has been set.
 `func (o *UserProperties) SetUsername(v string)`
 
 SetUsername sets Username field to given value.
-
-
-### GetDatabase
-
-`func (o *UserProperties) GetDatabase() string`
-
-GetDatabase returns the Database field if non-nil, zero value otherwise.
-
-### GetDatabaseOk
-
-`func (o *UserProperties) GetDatabaseOk() (*string, bool)`
-
-GetDatabaseOk returns a tuple with the Database field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetDatabase
-
-`func (o *UserProperties) SetDatabase(v string)`
-
-SetDatabase sets Database field to given value.
 
 
 ### GetPassword

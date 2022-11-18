@@ -205,6 +205,57 @@ paths:
       summary: Get a cluster by id
       tags:
       - Clusters
+    patch:
+      description: Patch attributes of a MongoDB cluster.
+      operationId: clustersPatch
+      parameters:
+      - description: The unique ID of the cluster.
+        explode: false
+        in: path
+        name: clusterId
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchClusterRequest'
+        description: Part of the cluster which should be modified.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClusterResponse'
+          description: Successful operation.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: |
+            Any erroneous status code: 400 (parse error), 401 (auth error),
+            402 (trial access), 403 (insufficient permissions), 404 (not found),
+            405 (unsupported HTTP method), 415 (unsupported content type),
+            422 (validation error), 429 (request rate limit exceeded),
+            500 (server error), 503 (maintenance)
+          headers:
+            Content-Type:
+              description: The content type of the response.
+              explode: false
+              schema:
+                default: application/problem+json
+                type: string
+              style: simple
+      security:
+      - basicAuth: []
+      - tokenAuth: []
+      summary: Patch a cluster
+      tags:
+      - Clusters
   /clusters/{clusterId}/users:
     get:
       description: Retrieves a list of MongoDB users.
@@ -425,6 +476,74 @@ paths:
       - basicAuth: []
       - tokenAuth: []
       summary: Get a MongoDB User by ID
+      tags:
+      - Users
+    patch:
+      description: Patches a MongoDB user specified by its ID.
+      operationId: clustersUsersPatch
+      parameters:
+      - description: The unique ID of the cluster.
+        explode: false
+        in: path
+        name: clusterId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: The authentication database.
+        explode: false
+        in: path
+        name: database
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: The authentication username.
+        explode: false
+        in: path
+        name: username
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchUserRequest'
+        description: Part of the MongoDB user which should be modified.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+          description: |
+            The user identified by the username and database parameters will be patched.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: |
+            Any erroneous status code: 400 (parse error), 401 (auth error),
+            402 (trial access), 403 (insufficient permissions), 404 (not found),
+            405 (unsupported HTTP method), 415 (unsupported content type),
+            422 (validation error), 429 (request rate limit exceeded),
+            500 (server error), 503 (maintenance)
+          headers:
+            Content-Type:
+              description: The content type of the response.
+              explode: false
+              schema:
+                default: application/problem+json
+                type: string
+              style: simple
+      security:
+      - basicAuth: []
+      - tokenAuth: []
+      summary: Patch a MongoDB User by ID
       tags:
       - Users
   /clusters/{clusterId}/logs:
@@ -831,7 +950,6 @@ components:
             createdBy: john.doe@example.com
             state: CREATING
           properties:
-            database: admin
             password: password
             roles:
             - database: database
@@ -845,7 +963,6 @@ components:
             createdBy: john.doe@example.com
             state: CREATING
           properties:
-            database: admin
             password: password
             roles:
             - database: database
@@ -868,7 +985,6 @@ components:
     UserProperties:
       description: Mongodb user properties.
       example:
-        database: admin
         password: password
         roles:
         - database: database
@@ -879,11 +995,8 @@ components:
       properties:
         username:
           type: string
-        database:
-          description: The user database to use for authentication.
-          example: admin
-          type: string
         password:
+          minLength: 10
           type: string
           writeOnly: true
         roles:
@@ -903,7 +1016,6 @@ components:
           createdBy: john.doe@example.com
           state: CREATING
         properties:
-          database: admin
           password: password
           roles:
           - database: database
@@ -919,6 +1031,44 @@ components:
         properties:
           $ref: '#/components/schemas/UserProperties'
       type: object
+    PatchUserRequest:
+      description: MongoDB database user patch request.
+      example:
+        metadata:
+          createdByUserId: 87f9a82e-b28d-49ed-9d04-fba2c0459cd3
+          createdDate: 2020-12-10T13:37:50+01:00
+          createdBy: john.doe@example.com
+          state: CREATING
+        properties:
+          password: password
+          roles:
+          - database: database
+            role: read
+          - database: database
+            role: read
+      properties:
+        metadata:
+          $ref: '#/components/schemas/UserMetadata'
+        properties:
+          $ref: '#/components/schemas/PatchUserProperties'
+    PatchUserProperties:
+      description: MongoDB database user patch request properties.
+      example:
+        password: password
+        roles:
+        - database: database
+          role: read
+        - database: database
+          role: read
+      properties:
+        password:
+          minLength: 10
+          type: string
+          writeOnly: true
+        roles:
+          items:
+            $ref: '#/components/schemas/UserRoles'
+          type: array
     UserRoles:
       description: a list of mongodb user role.
       example:
@@ -1034,6 +1184,7 @@ components:
       - collection
       - cluster
       - user
+      - snapshot
       type: string
     ResourceId:
       description: The unique ID of the resource.
@@ -1066,6 +1217,9 @@ components:
           description: The MongoDB version of your cluster.
           example: "5.0"
           type: string
+          x-extensible-enum:
+          - "5.0"
+          - "6.0"
         location:
           description: |
             The physical location where the cluster will be created. This is the location where all your instances will be located. This property is immutable.
@@ -1096,6 +1250,8 @@ components:
         templateID:
           description: |
             The unique ID of the template, which specifies the number of cores, storage size, and memory.
+            You cannot downgrade to a smaller template or minor edition (e.g. from business to playground).
+            To get a list of all templates to confirm the changes use the /templates endpoint.
           example: 498ae72f-411f-11eb-9d07-046c59cc737e
           type: string
         connectionString:
@@ -1304,12 +1460,17 @@ components:
         templateID:
           description: |
             The unique ID of the template, which specifies the number of cores, storage size, and memory.
+            You cannot downgrade to a smaller template or minor edition (e.g. from business to playground).
+            To get a list of all templates to confirm the changes use the /templates endpoint.
           example: 498ae72f-411f-11eb-9d07-046c59cc737e
           type: string
         mongoDBVersion:
           description: The MongoDB version of your cluster.
           example: "5.0"
           type: string
+          x-extensible-enum:
+          - "5.0"
+          - "6.0"
         instances:
           description: |
             The total number of instances in the cluster (one primary and n-1 secondaries).
@@ -1349,9 +1510,86 @@ components:
       - mongodbVersion
       - templateID
       type: object
+    PatchClusterRequest:
+      description: Request payload to change a cluster.
+      example:
+        metadata:
+          createdByUserId: 87f9a82e-b28d-49ed-9d04-fba2c0459cd3
+          createdDate: 2020-12-10T13:37:50+01:00
+          createdBy: john.doe@example.com
+          lastModifiedDate: 2020-12-11T13:37:50+01:00
+          lastModifiedBy: jane.doe@example.com
+          state: AVAILABLE
+          lastModifiedByUserId: 87f9a82e-b28d-49ed-9d04-fba2c0459cd3
+        properties:
+          maintenanceWindow:
+            dayOfTheWeek: Monday
+            time: 16:30:59
+          instances: 3
+          displayName: MongoDB cluster
+          templateID: 498ae72f-411f-11eb-9d07-046c59cc737e
+          connections:
+          - cidrList:
+            - 192.168.1.100/24
+            - 192.168.1.101/24
+            datacenterId: 5a029f4a-72e5-11ec-90d6-0242ac120003
+            lanId: "2"
+      properties:
+        metadata:
+          $ref: '#/components/schemas/Metadata'
+        properties:
+          $ref: '#/components/schemas/PatchClusterProperties'
+      type: object
+    PatchClusterProperties:
+      description: Properties of the payload to change a cluster.
+      example:
+        maintenanceWindow:
+          dayOfTheWeek: Monday
+          time: 16:30:59
+        instances: 3
+        displayName: MongoDB cluster
+        templateID: 498ae72f-411f-11eb-9d07-046c59cc737e
+        connections:
+        - cidrList:
+          - 192.168.1.100/24
+          - 192.168.1.101/24
+          datacenterId: 5a029f4a-72e5-11ec-90d6-0242ac120003
+          lanId: "2"
+      properties:
+        displayName:
+          description: The name of your cluster.
+          example: MongoDB cluster
+          type: string
+        maintenanceWindow:
+          $ref: '#/components/schemas/MaintenanceWindow'
+        instances:
+          description: |
+            The total number of instances in the cluster (one primary and n-1 secondaries).
+          example: 3
+          type: integer
+          x-extensible-enum:
+          - 3
+          - 5
+          - 7
+        connections:
+          items:
+            $ref: '#/components/schemas/Connection'
+          maxItems: 1
+          minItems: 0
+          type: array
+        templateID:
+          description: |
+            The unique ID of the template, which specifies the number of cores, storage size, and memory.
+            You cannot downgrade to a smaller template or minor edition (e.g. from business to playground).
+            To get a list of all templates to confirm the changes use the /templates endpoint.
+          example: 498ae72f-411f-11eb-9d07-046c59cc737e
+          type: string
+      type: object
     TemplateID:
       description: |
         The unique ID of the template, which specifies the number of cores, storage size, and memory.
+        You cannot downgrade to a smaller template or minor edition (e.g. from business to playground).
+        To get a list of all templates to confirm the changes use the /templates endpoint.
       example: 498ae72f-411f-11eb-9d07-046c59cc737e
       type: string
     ClusterLogs:
@@ -1380,6 +1618,9 @@ components:
       description: The MongoDB version of your cluster.
       example: "5.0"
       type: string
+      x-extensible-enum:
+      - "5.0"
+      - "6.0"
     ConnectionString:
       description: The connection string for your cluster.
       example: mongo+srv://m-498ae72f-411f-11eb-9d07-046c59cc737e.mongodb.de-txl.ionos.com
@@ -1422,10 +1663,9 @@ components:
           type: string
         cidrList:
           description: |
-            The list of IPs and subnet for your cluster.
+            The list of IPs for your cluster.
+            All IPs must be in a /24 network.
             Note the following unavailable IP ranges:
-            10.233.64.0/18
-            10.233.0.0/18
             10.233.114.0/24
           example:
           - 192.168.1.100/24
@@ -1473,6 +1713,7 @@ components:
     TemplateList:
       allOf:
       - $ref: '#/components/schemas/TemplateList_allOf'
+      - $ref: '#/components/schemas/Pagination'
       description: The list of MongoDB templates.
       type: object
     TemplateResponse:
@@ -1481,6 +1722,14 @@ components:
         id:
           description: The unique template ID.
           example: 15c6dd2f-02d2-4987-b439-9a58dd59ecc3
+          type: string
+        name:
+          description: The name of the template.
+          example: MongoDB Community 4XL
+          type: string
+        edition:
+          description: The edition of the template (e.g. enterprise)
+          example: enterprise
           type: string
         cores:
           description: The number of CPU cores.
@@ -1553,6 +1802,12 @@ components:
       type: object
     TemplateList_allOf:
       properties:
+        type:
+          $ref: '#/components/schemas/ResourceType'
+        id:
+          description: The unique ID of the resource.
+          example: 498ae72f-411f-11eb-9d07-046c59cc737e
+          type: string
         items:
           items:
             $ref: '#/components/schemas/TemplateResponse'

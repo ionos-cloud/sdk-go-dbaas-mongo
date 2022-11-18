@@ -9,7 +9,7 @@ The network connection  details for your cluster.
 |------------ | ------------- | ------------- | -------------|
 |**DatacenterId** | **string** | The datacenter to which your cluster will be connected. | |
 |**LanId** | **string** | The numeric LAN ID with which you connect your cluster. | |
-|**CidrList** | **[]string** | The list of IPs and subnet for your cluster. Note the following unavailable IP ranges: 10.233.64.0/18 10.233.0.0/18 10.233.114.0/24  | |
+|**CidrList** | **[]string** | The list of IPs for your cluster. All IPs must be in a /24 network. Note the following unavailable IP ranges: 10.233.114.0/24  | |
 
 ## Methods
 

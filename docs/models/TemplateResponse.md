@@ -8,6 +8,8 @@ A MongoDB template item.
 |Name | Type | Description | Notes|
 |------------ | ------------- | ------------- | -------------|
 |**Id** | Pointer to **string** | The unique template ID. | [optional] |
+|**Name** | Pointer to **string** | The name of the template. | [optional] |
+|**Edition** | Pointer to **string** | The edition of the template (e.g. enterprise) | [optional] |
 |**Cores** | Pointer to **int32** | The number of CPU cores. | [optional] |
 |**Ram** | Pointer to **int32** | The amount of memory in GB. | [optional] |
 |**StorageSize** | Pointer to **int32** | The amount of storage size in GB. | [optional] |
@@ -39,6 +41,56 @@ SetId sets Id field to given value.
 `func (o *TemplateResponse) HasId() bool`
 
 HasId returns a boolean if a field has been set.
+
+### GetName
+
+`func (o *TemplateResponse) GetName() string`
+
+GetName returns the Name field if non-nil, zero value otherwise.
+
+### GetNameOk
+
+`func (o *TemplateResponse) GetNameOk() (*string, bool)`
+
+GetNameOk returns a tuple with the Name field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetName
+
+`func (o *TemplateResponse) SetName(v string)`
+
+SetName sets Name field to given value.
+
+### HasName
+
+`func (o *TemplateResponse) HasName() bool`
+
+HasName returns a boolean if a field has been set.
+
+### GetEdition
+
+`func (o *TemplateResponse) GetEdition() string`
+
+GetEdition returns the Edition field if non-nil, zero value otherwise.
+
+### GetEditionOk
+
+`func (o *TemplateResponse) GetEditionOk() (*string, bool)`
+
+GetEditionOk returns a tuple with the Edition field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEdition
+
+`func (o *TemplateResponse) SetEdition(v string)`
+
+SetEdition sets Edition field to given value.
+
+### HasEdition
+
+`func (o *TemplateResponse) HasEdition() bool`
+
+HasEdition returns a boolean if a field has been set.
 
 ### GetCores
 
