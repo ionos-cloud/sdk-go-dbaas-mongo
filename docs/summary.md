@@ -30,6 +30,7 @@
 * [DayOfTheWeek](models/DayOfTheWeek.md)
 * [ErrorMessage](models/ErrorMessage.md)
 * [ErrorResponse](models/ErrorResponse.md)
+* [Health](models/Health.md)
 * [MaintenanceWindow](models/MaintenanceWindow.md)
 * [Metadata](models/Metadata.md)
 * [Pagination](models/Pagination.md)

@@ -4,10 +4,10 @@ All URIs are relative to *https://api.ionos.com/databases/mongodb*
 
 |Method | HTTP request | Description|
 |------------- | ------------- | -------------|
-|[**ClustersUsersDelete**](UsersApi.md#ClustersUsersDelete) | **Delete** /clusters/{clusterId}/users/{database}/{username} | Delete a MongoDB User by ID|
-|[**ClustersUsersFindById**](UsersApi.md#ClustersUsersFindById) | **Get** /clusters/{clusterId}/users/{database}/{username} | Get a MongoDB User by ID|
-|[**ClustersUsersGet**](UsersApi.md#ClustersUsersGet) | **Get** /clusters/{clusterId}/users | Get a Cluster Users|
-|[**ClustersUsersPatch**](UsersApi.md#ClustersUsersPatch) | **Patch** /clusters/{clusterId}/users/{database}/{username} | Patch a MongoDB User by ID|
+|[**ClustersUsersDelete**](UsersApi.md#ClustersUsersDelete) | **Delete** /clusters/{clusterId}/users/{username} | Delete a MongoDB User by ID|
+|[**ClustersUsersFindById**](UsersApi.md#ClustersUsersFindById) | **Get** /clusters/{clusterId}/users/{username} | Get a MongoDB User by ID|
+|[**ClustersUsersGet**](UsersApi.md#ClustersUsersGet) | **Get** /clusters/{clusterId}/users | Get all Cluster Users|
+|[**ClustersUsersPatch**](UsersApi.md#ClustersUsersPatch) | **Patch** /clusters/{clusterId}/users/{username} | Patch a MongoDB User by ID|
 |[**ClustersUsersPost**](UsersApi.md#ClustersUsersPost) | **Post** /clusters/{clusterId}/users | Create MongoDB User|
 
 
@@ -15,7 +15,7 @@ All URIs are relative to *https://api.ionos.com/databases/mongodb*
 ## ClustersUsersDelete
 
 ```go
-var result User = ClustersUsersDelete(ctx, clusterId, database, username)
+var result User = ClustersUsersDelete(ctx, clusterId, username)
                       .Execute()
 ```
 
@@ -38,12 +38,11 @@ import (
 
 func main() {
     clusterId := "clusterId_example" // string | The unique ID of the cluster.
-    database := "database_example" // string | The authentication database.
     username := "username_example" // string | The authentication username.
 
     configuration := ionoscloud.NewConfiguration("USERNAME", "PASSWORD", "TOKEN", "HOST_URL")
     apiClient := ionoscloud.NewAPIClient(configuration)
-    resource, resp, err := apiClient.UsersApi.ClustersUsersDelete(context.Background(), clusterId, database, username).Execute()
+    resource, resp, err := apiClient.UsersApi.ClustersUsersDelete(context.Background(), clusterId, username).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `UsersApi.ClustersUsersDelete``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", resp)
@@ -60,7 +59,6 @@ func main() {
 |------------- | ------------- | ------------- | -------------|
 |**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.|
 |**clusterId** | **string** | The unique ID of the cluster. | |
-|**database** | **string** | The authentication database. | |
 |**username** | **string** | The authentication username. | |
 
 ### Other Parameters
@@ -85,7 +83,7 @@ Other parameters are passed through a pointer to an apiClustersUsersDeleteReques
 ## ClustersUsersFindById
 
 ```go
-var result User = ClustersUsersFindById(ctx, clusterId, database, username)
+var result User = ClustersUsersFindById(ctx, clusterId, username)
                       .Execute()
 ```
 
@@ -108,12 +106,11 @@ import (
 
 func main() {
     clusterId := "clusterId_example" // string | The unique ID of the cluster.
-    database := "database_example" // string | The authentication database.
     username := "username_example" // string | The authentication username.
 
     configuration := ionoscloud.NewConfiguration("USERNAME", "PASSWORD", "TOKEN", "HOST_URL")
     apiClient := ionoscloud.NewAPIClient(configuration)
-    resource, resp, err := apiClient.UsersApi.ClustersUsersFindById(context.Background(), clusterId, database, username).Execute()
+    resource, resp, err := apiClient.UsersApi.ClustersUsersFindById(context.Background(), clusterId, username).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `UsersApi.ClustersUsersFindById``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", resp)
@@ -130,7 +127,6 @@ func main() {
 |------------- | ------------- | ------------- | -------------|
 |**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.|
 |**clusterId** | **string** | The unique ID of the cluster. | |
-|**database** | **string** | The authentication database. | |
 |**username** | **string** | The authentication username. | |
 
 ### Other Parameters
@@ -159,7 +155,7 @@ var result UsersList = ClustersUsersGet(ctx, clusterId)
                       .Execute()
 ```
 
-Get a Cluster Users
+Get all Cluster Users
 
 
 
@@ -221,7 +217,7 @@ Other parameters are passed through a pointer to an apiClustersUsersGetRequest s
 ## ClustersUsersPatch
 
 ```go
-var result User = ClustersUsersPatch(ctx, clusterId, database, username)
+var result User = ClustersUsersPatch(ctx, clusterId, username)
                       .PatchUserRequest(patchUserRequest)
                       .Execute()
 ```
@@ -245,13 +241,12 @@ import (
 
 func main() {
     clusterId := "clusterId_example" // string | The unique ID of the cluster.
-    database := "database_example" // string | The authentication database.
     username := "username_example" // string | The authentication username.
     patchUserRequest := *openapiclient.NewPatchUserRequest() // PatchUserRequest | Part of the MongoDB user which should be modified.
 
     configuration := ionoscloud.NewConfiguration("USERNAME", "PASSWORD", "TOKEN", "HOST_URL")
     apiClient := ionoscloud.NewAPIClient(configuration)
-    resource, resp, err := apiClient.UsersApi.ClustersUsersPatch(context.Background(), clusterId, database, username).PatchUserRequest(patchUserRequest).Execute()
+    resource, resp, err := apiClient.UsersApi.ClustersUsersPatch(context.Background(), clusterId, username).PatchUserRequest(patchUserRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `UsersApi.ClustersUsersPatch``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", resp)
@@ -268,7 +263,6 @@ func main() {
 |------------- | ------------- | ------------- | -------------|
 |**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.|
 |**clusterId** | **string** | The unique ID of the cluster. | |
-|**database** | **string** | The authentication database. | |
 |**username** | **string** | The authentication username. | |
 
 ### Other Parameters

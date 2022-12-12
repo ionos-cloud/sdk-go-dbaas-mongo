@@ -14,6 +14,7 @@ The metadata of the resource.
 |**LastModifiedBy** | Pointer to **string** | The last user who modified the resource. | [optional] |
 |**LastModifiedByUserId** | Pointer to **string** | The ID of the user who last modified the resource. | [optional] |
 |**State** | Pointer to [**State**](State.md) |  | [optional] |
+|**Health** | Pointer to [**Health**](Health.md) |  | [optional] |
 
 ## Methods
 
@@ -192,6 +193,31 @@ SetState sets State field to given value.
 `func (o *Metadata) HasState() bool`
 
 HasState returns a boolean if a field has been set.
+
+### GetHealth
+
+`func (o *Metadata) GetHealth() Health`
+
+GetHealth returns the Health field if non-nil, zero value otherwise.
+
+### GetHealthOk
+
+`func (o *Metadata) GetHealthOk() (*Health, bool)`
+
+GetHealthOk returns a tuple with the Health field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHealth
+
+`func (o *Metadata) SetHealth(v Health)`
+
+SetHealth sets Health field to given value.
+
+### HasHealth
+
+`func (o *Metadata) HasHealth() bool`
+
+HasHealth returns a boolean if a field has been set.
 
 
 
