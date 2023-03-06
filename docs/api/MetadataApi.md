@@ -58,7 +58,7 @@ Other parameters are passed through a pointer to an apiInfosVersionGetRequest st
 
 ### Return type
 
-[**APIVersion**](APIVersion.md)
+[**APIVersion**](../models/APIVersion.md)
 
 ### HTTP request headers
 
@@ -116,7 +116,7 @@ Other parameters are passed through a pointer to an apiInfosVersionsGetRequest s
 
 ### Return type
 
-[**[]APIVersion**](APIVersion.md)
+[**[]APIVersion**](../models/APIVersion.md)
 
 ### HTTP request headers
 
