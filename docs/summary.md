@@ -47,6 +47,7 @@
 * [State](models/State.md)
 * [TemplateList](models/TemplateList.md)
 * [TemplateListAllOf](models/TemplateListAllOf.md)
+* [TemplateProperties](models/TemplateProperties.md)
 * [TemplateResponse](models/TemplateResponse.md)
 * [User](models/User.md)
 * [UserMetadata](models/UserMetadata.md)

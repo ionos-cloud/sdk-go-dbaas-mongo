@@ -9,6 +9,7 @@ The resource type.
 |CLUSTER |
 |USER |
 |SNAPSHOT |
+|TEMPLATE |
 
 
 
