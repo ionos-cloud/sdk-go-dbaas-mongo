@@ -16,6 +16,9 @@
 ## Models
 
 * [APIVersion](models/APIVersion.md)
+* [BackupProperties](models/BackupProperties.md)
+* [BackupRetentionProperties](models/BackupRetentionProperties.md)
+* [BiConnectorProperties](models/BiConnectorProperties.md)
 * [ClusterList](models/ClusterList.md)
 * [ClusterListAllOf](models/ClusterListAllOf.md)
 * [ClusterLogs](models/ClusterLogs.md)
@@ -45,6 +48,7 @@
 * [SnapshotProperties](models/SnapshotProperties.md)
 * [SnapshotResponse](models/SnapshotResponse.md)
 * [State](models/State.md)
+* [StorageType](models/StorageType.md)
 * [TemplateList](models/TemplateList.md)
 * [TemplateListAllOf](models/TemplateListAllOf.md)
 * [TemplateProperties](models/TemplateProperties.md)

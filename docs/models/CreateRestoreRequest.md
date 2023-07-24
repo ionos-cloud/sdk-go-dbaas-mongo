@@ -7,7 +7,8 @@ The restore request.
 
 |Name | Type | Description | Notes|
 |------------ | ------------- | ------------- | -------------|
-|**SnapshotId** | **string** | The unique ID of the snapshot you want to restore. | |
+|**SnapshotId** | Pointer to **string** | The unique ID of the snapshot you want to restore. | [optional] |
+|**RecoveryTargetTime** | Pointer to [**time.Time**](time.Time.md) | If this value is supplied as ISO 8601 timestamp, the backup will be replayed up until the given timestamp.  | [optional] |
 
 ## Methods
 
@@ -31,6 +32,36 @@ and a boolean to check if the value has been set.
 
 SetSnapshotId sets SnapshotId field to given value.
 
+### HasSnapshotId
+
+`func (o *CreateRestoreRequest) HasSnapshotId() bool`
+
+HasSnapshotId returns a boolean if a field has been set.
+
+### GetRecoveryTargetTime
+
+`func (o *CreateRestoreRequest) GetRecoveryTargetTime() time.Time`
+
+GetRecoveryTargetTime returns the RecoveryTargetTime field if non-nil, zero value otherwise.
+
+### GetRecoveryTargetTimeOk
+
+`func (o *CreateRestoreRequest) GetRecoveryTargetTimeOk() (*time.Time, bool)`
+
+GetRecoveryTargetTimeOk returns a tuple with the RecoveryTargetTime field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRecoveryTargetTime
+
+`func (o *CreateRestoreRequest) SetRecoveryTargetTime(v time.Time)`
+
+SetRecoveryTargetTime sets RecoveryTargetTime field to given value.
+
+### HasRecoveryTargetTime
+
+`func (o *CreateRestoreRequest) HasRecoveryTargetTime() bool`
+
+HasRecoveryTargetTime returns a boolean if a field has been set.
 
 
 

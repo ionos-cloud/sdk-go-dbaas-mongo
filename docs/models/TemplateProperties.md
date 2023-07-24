@@ -10,7 +10,7 @@ The properties of a MongoDB template.
 |**Name** | Pointer to **string** | The name of the template. | [optional] |
 |**Edition** | Pointer to **string** | The edition of the template (e.g. enterprise) | [optional] |
 |**Cores** | Pointer to **int32** | The number of CPU cores. | [optional] |
-|**Ram** | Pointer to **int32** | The amount of memory in GB. | [optional] |
+|**Ram** | Pointer to **int32** | The amount of memory in MB. | [optional] |
 |**StorageSize** | Pointer to **int32** | The amount of storage size in GB. | [optional] |
 
 ## Methods
