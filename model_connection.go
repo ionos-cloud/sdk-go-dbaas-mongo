@@ -205,19 +205,15 @@ func (o Connection) MarshalJSON() ([]byte, error) {
 	if o.DatacenterId != nil {
 		toSerialize["datacenterId"] = o.DatacenterId
 	}
-
 	if o.LanId != nil {
 		toSerialize["lanId"] = o.LanId
 	}
-
 	if o.CidrList != nil {
 		toSerialize["cidrList"] = o.CidrList
 	}
-
 	if o.Whitelist != nil {
 		toSerialize["whitelist"] = o.Whitelist
 	}
-
 	return json.Marshal(toSerialize)
 }
 

@@ -129,11 +129,9 @@ func (o CreateRestoreRequest) MarshalJSON() ([]byte, error) {
 	if o.SnapshotId != nil {
 		toSerialize["snapshotId"] = o.SnapshotId
 	}
-
 	if o.RecoveryTargetTime != nil {
 		toSerialize["recoveryTargetTime"] = o.RecoveryTargetTime
 	}
-
 	return json.Marshal(toSerialize)
 }
 

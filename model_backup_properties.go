@@ -16,11 +16,6 @@ import (
 
 // BackupProperties Backup related properties.
 type BackupProperties struct {
-	// Number of hours between snapshots.
-	SnapshotIntervalHours *int32 `json:"snapshotIntervalHours,omitempty"`
-	// Number of hours in the past for which a point-in-time snapshot can be created.
-	PointInTimeWindowHours *int32                     `json:"pointInTimeWindowHours,omitempty"`
-	BackupRetention        *BackupRetentionProperties `json:"backupRetention,omitempty"`
 	// The location where the cluster backups will be stored. If not set, the backup is stored in the nearest location of the cluster.
 	Location *string `json:"location,omitempty"`
 }
@@ -41,120 +36,6 @@ func NewBackupProperties() *BackupProperties {
 func NewBackupPropertiesWithDefaults() *BackupProperties {
 	this := BackupProperties{}
 	return &this
-}
-
-// GetSnapshotIntervalHours returns the SnapshotIntervalHours field value
-// If the value is explicit nil, the zero value for int32 will be returned
-func (o *BackupProperties) GetSnapshotIntervalHours() *int32 {
-	if o == nil {
-		return nil
-	}
-
-	return o.SnapshotIntervalHours
-
-}
-
-// GetSnapshotIntervalHoursOk returns a tuple with the SnapshotIntervalHours field value
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *BackupProperties) GetSnapshotIntervalHoursOk() (*int32, bool) {
-	if o == nil {
-		return nil, false
-	}
-
-	return o.SnapshotIntervalHours, true
-}
-
-// SetSnapshotIntervalHours sets field value
-func (o *BackupProperties) SetSnapshotIntervalHours(v int32) {
-
-	o.SnapshotIntervalHours = &v
-
-}
-
-// HasSnapshotIntervalHours returns a boolean if a field has been set.
-func (o *BackupProperties) HasSnapshotIntervalHours() bool {
-	if o != nil && o.SnapshotIntervalHours != nil {
-		return true
-	}
-
-	return false
-}
-
-// GetPointInTimeWindowHours returns the PointInTimeWindowHours field value
-// If the value is explicit nil, the zero value for int32 will be returned
-func (o *BackupProperties) GetPointInTimeWindowHours() *int32 {
-	if o == nil {
-		return nil
-	}
-
-	return o.PointInTimeWindowHours
-
-}
-
-// GetPointInTimeWindowHoursOk returns a tuple with the PointInTimeWindowHours field value
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *BackupProperties) GetPointInTimeWindowHoursOk() (*int32, bool) {
-	if o == nil {
-		return nil, false
-	}
-
-	return o.PointInTimeWindowHours, true
-}
-
-// SetPointInTimeWindowHours sets field value
-func (o *BackupProperties) SetPointInTimeWindowHours(v int32) {
-
-	o.PointInTimeWindowHours = &v
-
-}
-
-// HasPointInTimeWindowHours returns a boolean if a field has been set.
-func (o *BackupProperties) HasPointInTimeWindowHours() bool {
-	if o != nil && o.PointInTimeWindowHours != nil {
-		return true
-	}
-
-	return false
-}
-
-// GetBackupRetention returns the BackupRetention field value
-// If the value is explicit nil, the zero value for BackupRetentionProperties will be returned
-func (o *BackupProperties) GetBackupRetention() *BackupRetentionProperties {
-	if o == nil {
-		return nil
-	}
-
-	return o.BackupRetention
-
-}
-
-// GetBackupRetentionOk returns a tuple with the BackupRetention field value
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *BackupProperties) GetBackupRetentionOk() (*BackupRetentionProperties, bool) {
-	if o == nil {
-		return nil, false
-	}
-
-	return o.BackupRetention, true
-}
-
-// SetBackupRetention sets field value
-func (o *BackupProperties) SetBackupRetention(v BackupRetentionProperties) {
-
-	o.BackupRetention = &v
-
-}
-
-// HasBackupRetention returns a boolean if a field has been set.
-func (o *BackupProperties) HasBackupRetention() bool {
-	if o != nil && o.BackupRetention != nil {
-		return true
-	}
-
-	return false
 }
 
 // GetLocation returns the Location field value
@@ -197,22 +78,9 @@ func (o *BackupProperties) HasLocation() bool {
 
 func (o BackupProperties) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if o.SnapshotIntervalHours != nil {
-		toSerialize["snapshotIntervalHours"] = o.SnapshotIntervalHours
-	}
-
-	if o.PointInTimeWindowHours != nil {
-		toSerialize["pointInTimeWindowHours"] = o.PointInTimeWindowHours
-	}
-
-	if o.BackupRetention != nil {
-		toSerialize["backupRetention"] = o.BackupRetention
-	}
-
 	if o.Location != nil {
 		toSerialize["location"] = o.Location
 	}
-
 	return json.Marshal(toSerialize)
 }
 

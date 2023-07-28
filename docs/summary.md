@@ -17,7 +17,6 @@
 
 * [APIVersion](models/APIVersion.md)
 * [BackupProperties](models/BackupProperties.md)
-* [BackupRetentionProperties](models/BackupRetentionProperties.md)
 * [BiConnectorProperties](models/BiConnectorProperties.md)
 * [ClusterList](models/ClusterList.md)
 * [ClusterListAllOf](models/ClusterListAllOf.md)

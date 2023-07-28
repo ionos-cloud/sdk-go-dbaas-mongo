@@ -241,23 +241,18 @@ func (o TemplateProperties) MarshalJSON() ([]byte, error) {
 	if o.Name != nil {
 		toSerialize["name"] = o.Name
 	}
-
 	if o.Edition != nil {
 		toSerialize["edition"] = o.Edition
 	}
-
 	if o.Cores != nil {
 		toSerialize["cores"] = o.Cores
 	}
-
 	if o.Ram != nil {
 		toSerialize["ram"] = o.Ram
 	}
-
 	if o.StorageSize != nil {
 		toSerialize["storageSize"] = o.StorageSize
 	}
-
 	return json.Marshal(toSerialize)
 }
 
