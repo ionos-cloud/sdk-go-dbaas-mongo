@@ -23,7 +23,7 @@
 * [ClusterListAllOf](models/ClusterListAllOf.md)
 * [ClusterLogs](models/ClusterLogs.md)
 * [ClusterLogsInstances](models/ClusterLogsInstances.md)
-* [ClusterLogsMessages](models/ClusterLogsMessages.md)
+* [ClusterLogsInstancesMessages](models/ClusterLogsInstancesMessages.md)
 * [ClusterProperties](models/ClusterProperties.md)
 * [ClusterResponse](models/ClusterResponse.md)
 * [Connection](models/Connection.md)

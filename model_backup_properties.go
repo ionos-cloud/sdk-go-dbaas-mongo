@@ -32,9 +32,6 @@ type BackupProperties struct {
 func NewBackupProperties() *BackupProperties {
 	this := BackupProperties{}
 
-	var snapshotIntervalHours int32 = 24
-	this.SnapshotIntervalHours = &snapshotIntervalHours
-
 	return &this
 }
 
@@ -43,8 +40,6 @@ func NewBackupProperties() *BackupProperties {
 // but it doesn't guarantee that properties required by API are set
 func NewBackupPropertiesWithDefaults() *BackupProperties {
 	this := BackupProperties{}
-	var snapshotIntervalHours int32 = 24
-	this.SnapshotIntervalHours = &snapshotIntervalHours
 	return &this
 }
 
