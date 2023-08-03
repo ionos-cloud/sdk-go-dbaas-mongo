@@ -40,6 +40,12 @@ type Limitable[T Identifiable] interface {
 	HasLimit() bool
 }
 
+type Paginated[T Identifiable] interface {
+	Identifiable
+	Offsetable[T]
+	Listable[T]
+}
+
 type Stateful interface {
 	GetState() *ionoscloud.State
 	GetStateOk() (*ionoscloud.State, bool)
