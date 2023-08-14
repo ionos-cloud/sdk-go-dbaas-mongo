@@ -6,6 +6,7 @@ The storage type used in your cluster.
 |Value |
 |------------ |
 |HDD |
+|SSD |
 |SSD_STANDARD |
 |SSD_PREMIUM |
 
