@@ -33,7 +33,7 @@ import (
     "fmt"
     "os"
 
-    ionoscloud "github.com/ionos-cloud/sdk-go-dbaas-mongo"
+    ionoscloud "github.com/ionos-cloud/go"
 )
 
 func main() {

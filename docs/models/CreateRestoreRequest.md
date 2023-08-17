@@ -12,6 +12,22 @@ The restore request.
 
 ## Methods
 
+### NewCreateRestoreRequest
+
+`func NewCreateRestoreRequest() *CreateRestoreRequest`
+
+NewCreateRestoreRequest instantiates a new CreateRestoreRequest object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewCreateRestoreRequestWithDefaults
+
+`func NewCreateRestoreRequestWithDefaults() *CreateRestoreRequest`
+
+NewCreateRestoreRequestWithDefaults instantiates a new CreateRestoreRequest object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
 
 ### GetSnapshotId
 
@@ -62,6 +78,5 @@ SetRecoveryTargetTime sets RecoveryTargetTime field to given value.
 `func (o *CreateRestoreRequest) HasRecoveryTargetTime() bool`
 
 HasRecoveryTargetTime returns a boolean if a field has been set.
-
 
 

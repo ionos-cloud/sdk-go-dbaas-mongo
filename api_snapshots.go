@@ -131,13 +131,14 @@ func (a *SnapshotsApiService) ClustersSnapshotsGetExecute(r ApiClustersSnapshots
 		return localVarReturnValue, nil, err
 	}
 
-	localVarHTTPResponse, err := a.client.callAPI(req)
+	localVarHTTPResponse, httpRequestTime, err := a.client.callAPI(req)
 
 	localVarAPIResponse := &APIResponse{
-		Response:   localVarHTTPResponse,
-		Method:     localVarHTTPMethod,
-		RequestURL: localVarPath,
-		Operation:  "ClustersSnapshotsGet",
+		Response:    localVarHTTPResponse,
+		Method:      localVarHTTPMethod,
+		RequestTime: httpRequestTime,
+		RequestURL:  localVarPath,
+		Operation:   "ClustersSnapshotsGet",
 	}
 
 	if err != nil || localVarHTTPResponse == nil {

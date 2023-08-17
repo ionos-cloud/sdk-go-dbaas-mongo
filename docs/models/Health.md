@@ -12,4 +12,3 @@ The current health status reported by the cluster. * **HEALTHY** Primary exists 
 
 
 
-

@@ -12,6 +12,22 @@ A weekly window of 4 hours during which maintenance work can be performed.
 
 ## Methods
 
+### NewMaintenanceWindow
+
+`func NewMaintenanceWindow(time string, dayOfTheWeek DayOfTheWeek, ) *MaintenanceWindow`
+
+NewMaintenanceWindow instantiates a new MaintenanceWindow object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewMaintenanceWindowWithDefaults
+
+`func NewMaintenanceWindowWithDefaults() *MaintenanceWindow`
+
+NewMaintenanceWindowWithDefaults instantiates a new MaintenanceWindow object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
 
 ### GetTime
 
@@ -51,7 +67,6 @@ and a boolean to check if the value has been set.
 `func (o *MaintenanceWindow) SetDayOfTheWeek(v DayOfTheWeek)`
 
 SetDayOfTheWeek sets DayOfTheWeek field to given value.
-
 
 
 

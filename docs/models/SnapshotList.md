@@ -16,6 +16,22 @@ List of snapshots.
 
 ## Methods
 
+### NewSnapshotList
+
+`func NewSnapshotList() *SnapshotList`
+
+NewSnapshotList instantiates a new SnapshotList object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewSnapshotListWithDefaults
+
+`func NewSnapshotListWithDefaults() *SnapshotList`
+
+NewSnapshotListWithDefaults instantiates a new SnapshotList object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
 
 ### GetType
 
@@ -166,6 +182,5 @@ SetLinks sets Links field to given value.
 `func (o *SnapshotList) HasLinks() bool`
 
 HasLinks returns a boolean if a field has been set.
-
 
 

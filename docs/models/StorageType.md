@@ -12,4 +12,3 @@ The storage type used in your cluster.
 
 
 
-

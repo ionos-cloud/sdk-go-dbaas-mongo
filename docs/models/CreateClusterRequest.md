@@ -12,6 +12,22 @@ The request payload with all data needed to create a new MongoDB cluster.
 
 ## Methods
 
+### NewCreateClusterRequest
+
+`func NewCreateClusterRequest() *CreateClusterRequest`
+
+NewCreateClusterRequest instantiates a new CreateClusterRequest object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewCreateClusterRequestWithDefaults
+
+`func NewCreateClusterRequestWithDefaults() *CreateClusterRequest`
+
+NewCreateClusterRequestWithDefaults instantiates a new CreateClusterRequest object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
 
 ### GetMetadata
 
@@ -62,6 +78,5 @@ SetProperties sets Properties field to given value.
 `func (o *CreateClusterRequest) HasProperties() bool`
 
 HasProperties returns a boolean if a field has been set.
-
 
 

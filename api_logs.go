@@ -148,13 +148,14 @@ func (a *LogsApiService) ClustersLogsGetExecute(r ApiClustersLogsGetRequest) (Cl
 		return localVarReturnValue, nil, err
 	}
 
-	localVarHTTPResponse, err := a.client.callAPI(req)
+	localVarHTTPResponse, httpRequestTime, err := a.client.callAPI(req)
 
 	localVarAPIResponse := &APIResponse{
-		Response:   localVarHTTPResponse,
-		Method:     localVarHTTPMethod,
-		RequestURL: localVarPath,
-		Operation:  "ClustersLogsGet",
+		Response:    localVarHTTPResponse,
+		Method:      localVarHTTPMethod,
+		RequestTime: httpRequestTime,
+		RequestURL:  localVarPath,
+		Operation:   "ClustersLogsGet",
 	}
 
 	if err != nil || localVarHTTPResponse == nil {

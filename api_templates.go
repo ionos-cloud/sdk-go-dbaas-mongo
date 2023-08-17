@@ -127,13 +127,14 @@ func (a *TemplatesApiService) TemplatesGetExecute(r ApiTemplatesGetRequest) (Tem
 		return localVarReturnValue, nil, err
 	}
 
-	localVarHTTPResponse, err := a.client.callAPI(req)
+	localVarHTTPResponse, httpRequestTime, err := a.client.callAPI(req)
 
 	localVarAPIResponse := &APIResponse{
-		Response:   localVarHTTPResponse,
-		Method:     localVarHTTPMethod,
-		RequestURL: localVarPath,
-		Operation:  "TemplatesGet",
+		Response:    localVarHTTPResponse,
+		Method:      localVarHTTPMethod,
+		RequestTime: httpRequestTime,
+		RequestURL:  localVarPath,
+		Operation:   "TemplatesGet",
 	}
 
 	if err != nil || localVarHTTPResponse == nil {

@@ -123,13 +123,14 @@ func (a *RestoresApiService) ClustersRestorePostExecute(r ApiClustersRestorePost
 		return nil, err
 	}
 
-	localVarHTTPResponse, err := a.client.callAPI(req)
+	localVarHTTPResponse, httpRequestTime, err := a.client.callAPI(req)
 
 	localVarAPIResponse := &APIResponse{
-		Response:   localVarHTTPResponse,
-		Method:     localVarHTTPMethod,
-		RequestURL: localVarPath,
-		Operation:  "ClustersRestorePost",
+		Response:    localVarHTTPResponse,
+		Method:      localVarHTTPMethod,
+		RequestTime: httpRequestTime,
+		RequestURL:  localVarPath,
+		Operation:   "ClustersRestorePost",
 	}
 
 	if err != nil || localVarHTTPResponse == nil {

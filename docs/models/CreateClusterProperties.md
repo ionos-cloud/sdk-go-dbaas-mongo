@@ -27,6 +27,22 @@ The properties with all data needed to create a new MongoDB cluster.
 
 ## Methods
 
+### NewCreateClusterProperties
+
+`func NewCreateClusterProperties(instances int32, connections []Connection, location string, displayName string, ) *CreateClusterProperties`
+
+NewCreateClusterProperties instantiates a new CreateClusterProperties object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewCreateClusterPropertiesWithDefaults
+
+`func NewCreateClusterPropertiesWithDefaults() *CreateClusterProperties`
+
+NewCreateClusterPropertiesWithDefaults instantiates a new CreateClusterProperties object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
 
 ### GetType
 
@@ -432,6 +448,5 @@ SetStorageType sets StorageType field to given value.
 `func (o *CreateClusterProperties) HasStorageType() bool`
 
 HasStorageType returns a boolean if a field has been set.
-
 
 

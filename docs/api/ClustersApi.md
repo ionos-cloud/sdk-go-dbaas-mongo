@@ -33,7 +33,7 @@ import (
     "fmt"
     "os"
 
-    ionoscloud "github.com/ionos-cloud/sdk-go-dbaas-mongo"
+    ionoscloud "github.com/ionos-cloud/go"
 )
 
 func main() {
@@ -41,7 +41,7 @@ func main() {
 
     configuration := ionoscloud.NewConfiguration("USERNAME", "PASSWORD", "TOKEN", "HOST_URL")
     apiClient := ionoscloud.NewAPIClient(configuration)
-    resource, resp, err := apiClient.ClustersApi.ClustersDelete(context.Background(), clusterId).Execute()
+    resp, err := apiClient.ClustersApi.ClustersDelete(context.Background(), clusterId).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ClustersApi.ClustersDelete``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", resp)
@@ -99,7 +99,7 @@ import (
     "fmt"
     "os"
 
-    ionoscloud "github.com/ionos-cloud/sdk-go-dbaas-mongo"
+    ionoscloud "github.com/ionos-cloud/go"
 )
 
 func main() {
@@ -168,7 +168,7 @@ import (
     "fmt"
     "os"
 
-    ionoscloud "github.com/ionos-cloud/sdk-go-dbaas-mongo"
+    ionoscloud "github.com/ionos-cloud/go"
 )
 
 func main() {
@@ -236,7 +236,7 @@ import (
     "fmt"
     "os"
 
-    ionoscloud "github.com/ionos-cloud/sdk-go-dbaas-mongo"
+    ionoscloud "github.com/ionos-cloud/go"
 )
 
 func main() {
@@ -305,7 +305,7 @@ import (
     "fmt"
     "os"
 
-    ionoscloud "github.com/ionos-cloud/sdk-go-dbaas-mongo"
+    ionoscloud "github.com/ionos-cloud/go"
 )
 
 func main() {

@@ -12,6 +12,22 @@
 
 ## Methods
 
+### NewBiConnectorProperties
+
+`func NewBiConnectorProperties() *BiConnectorProperties`
+
+NewBiConnectorProperties instantiates a new BiConnectorProperties object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewBiConnectorPropertiesWithDefaults
+
+`func NewBiConnectorPropertiesWithDefaults() *BiConnectorProperties`
+
+NewBiConnectorPropertiesWithDefaults instantiates a new BiConnectorProperties object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
 
 ### GetEnabled
 
@@ -87,6 +103,5 @@ SetPort sets Port field to given value.
 `func (o *BiConnectorProperties) HasPort() bool`
 
 HasPort returns a boolean if a field has been set.
-
 
 

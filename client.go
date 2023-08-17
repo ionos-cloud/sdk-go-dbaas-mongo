@@ -50,7 +50,7 @@ const (
 	RequestStatusFailed  = "FAILED"
 	RequestStatusDone    = "DONE"
 
-	Version = "1.3.1"
+	Version = "1.0.0"
 )
 
 // APIClient manages communication with the IONOS DBaaS MongoDB REST API API v1.0.0
@@ -253,10 +253,11 @@ func parameterToJson(obj interface{}) (string, error) {
 }
 
 // callAPI do the request.
-func (c *APIClient) callAPI(request *http.Request) (*http.Response, error) {
+func (c *APIClient) callAPI(request *http.Request) (*http.Response, time.Duration, error) {
 	retryCount := 0
 
 	var resp *http.Response
+	var httpRequestTime time.Duration
 	var err error
 
 	for {
@@ -268,7 +269,7 @@ func (c *APIClient) callAPI(request *http.Request) (*http.Response, error) {
 		if request.Body != nil {
 			clonedRequest.Body, err = request.GetBody()
 			if err != nil {
-				return nil, err
+				return nil, httpRequestTime, err
 			}
 		}
 
@@ -282,10 +283,12 @@ func (c *APIClient) callAPI(request *http.Request) (*http.Response, error) {
 			c.cfg.Logger.Printf("\n try no: %d\n", retryCount)
 		}
 
+		httpRequestStartTime := time.Now()
 		clonedRequest.Close = true
 		resp, err = c.cfg.HTTPClient.Do(clonedRequest)
+		httpRequestTime = time.Since(httpRequestStartTime)
 		if err != nil {
-			return resp, err
+			return resp, httpRequestTime, err
 		}
 
 		if c.cfg.Debug || c.cfg.LogLevel.Satisfies(Trace) {
@@ -304,7 +307,7 @@ func (c *APIClient) callAPI(request *http.Request) (*http.Response, error) {
 			http.StatusGatewayTimeout,
 			http.StatusBadGateway:
 			if request.Method == http.MethodPost {
-				return resp, err
+				return resp, httpRequestTime, err
 			}
 			backoffTime = c.GetConfig().WaitTime
 
@@ -312,14 +315,14 @@ func (c *APIClient) callAPI(request *http.Request) (*http.Response, error) {
 			if retryAfterSeconds := resp.Header.Get("Retry-After"); retryAfterSeconds != "" {
 				waitTime, err := time.ParseDuration(retryAfterSeconds + "s")
 				if err != nil {
-					return resp, err
+					return resp, httpRequestTime, err
 				}
 				backoffTime = waitTime
 			} else {
 				backoffTime = c.GetConfig().WaitTime
 			}
 		default:
-			return resp, err
+			return resp, httpRequestTime, err
 
 		}
 
@@ -329,21 +332,31 @@ func (c *APIClient) callAPI(request *http.Request) (*http.Response, error) {
 			}
 			break
 		} else {
-			c.backOff(backoffTime)
+			c.backOff(request.Context(), backoffTime)
 		}
 	}
 
-	return resp, err
+	return resp, httpRequestTime, err
 }
 
-func (c *APIClient) backOff(t time.Duration) {
+func (c *APIClient) backOff(ctx context.Context, t time.Duration) {
 	if t > c.GetConfig().MaxWaitTime {
 		t = c.GetConfig().MaxWaitTime
 	}
 	if c.cfg.Debug || c.cfg.LogLevel.Satisfies(Debug) {
 		c.cfg.Logger.Printf(" Sleeping %s before retrying request\n", t.String())
 	}
-	time.Sleep(t)
+	if t <= 0 {
+		return
+	}
+
+	timer := time.NewTimer(t)
+	defer timer.Stop()
+
+	select {
+	case <-ctx.Done():
+	case <-timer.C:
+	}
 }
 
 // Allow modification of underlying config for alternate implementations and testing

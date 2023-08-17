@@ -13,6 +13,22 @@ Pagination information in list responses.
 
 ## Methods
 
+### NewPagination
+
+`func NewPagination() *Pagination`
+
+NewPagination instantiates a new Pagination object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewPaginationWithDefaults
+
+`func NewPaginationWithDefaults() *Pagination`
+
+NewPaginationWithDefaults instantiates a new Pagination object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
 
 ### GetOffset
 
@@ -88,6 +104,5 @@ SetLinks sets Links field to given value.
 `func (o *Pagination) HasLinks() bool`
 
 HasLinks returns a boolean if a field has been set.
-
 
 

@@ -13,6 +13,22 @@ The metadata of the resource.
 
 ## Methods
 
+### NewUserMetadata
+
+`func NewUserMetadata() *UserMetadata`
+
+NewUserMetadata instantiates a new UserMetadata object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewUserMetadataWithDefaults
+
+`func NewUserMetadataWithDefaults() *UserMetadata`
+
+NewUserMetadataWithDefaults instantiates a new UserMetadata object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
 
 ### GetCreatedDate
 
@@ -88,6 +104,5 @@ SetCreatedByUserId sets CreatedByUserId field to given value.
 `func (o *UserMetadata) HasCreatedByUserId() bool`
 
 HasCreatedByUserId returns a boolean if a field has been set.
-
 
 

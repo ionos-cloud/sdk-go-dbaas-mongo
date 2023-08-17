@@ -11,6 +11,22 @@
 
 ## Methods
 
+### NewClusterLogsInstances
+
+`func NewClusterLogsInstances() *ClusterLogsInstances`
+
+NewClusterLogsInstances instantiates a new ClusterLogsInstances object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewClusterLogsInstancesWithDefaults
+
+`func NewClusterLogsInstancesWithDefaults() *ClusterLogsInstances`
+
+NewClusterLogsInstancesWithDefaults instantiates a new ClusterLogsInstances object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
 
 ### GetName
 
@@ -61,6 +77,5 @@ SetMessages sets Messages field to given value.
 `func (o *ClusterLogsInstances) HasMessages() bool`
 
 HasMessages returns a boolean if a field has been set.
-
 
 
