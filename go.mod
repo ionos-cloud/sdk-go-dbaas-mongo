@@ -1,6 +1,6 @@
 module github.com/ionos-cloud/sdk-go-dbaas-mongo
 
-go 1.18
+go 1.21
 
 require golang.org/x/oauth2 v0.6.0
 
