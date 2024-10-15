@@ -28,10 +28,16 @@ const (
 	IonosPinnedCertEnvVar = "IONOS_PINNED_CERT"
 	IonosLogLevelEnvVar   = "IONOS_LOG_LEVEL"
 	DefaultIonosServerUrl = "https://api.ionos.com/databases/mongodb"
-	DefaultIonosBasePath  = "/databases/mongodb"
+	DefaultIonosBasePath  = ""
 	defaultMaxRetries     = 3
 	defaultWaitTime       = time.Duration(100) * time.Millisecond
 	defaultMaxWaitTime    = time.Duration(2000) * time.Millisecond
+)
+
+var (
+	IonosServerUrls = []string{
+		"https://api.ionos.com/databases/mongodb",
+	}
 )
 
 // contextKeys are used to identify the type of value in the context.
@@ -113,14 +119,14 @@ type Configuration struct {
 	Servers            ServerConfigurations
 	OperationServers   map[string]ServerConfigurations
 	HTTPClient         *http.Client
+	LogLevel           LogLevel
+	Logger             Logger
 	Username           string        `json:"username,omitempty"`
 	Password           string        `json:"password,omitempty"`
 	Token              string        `json:"token,omitempty"`
 	MaxRetries         int           `json:"maxRetries,omitempty"`
 	WaitTime           time.Duration `json:"waitTime,omitempty"`
 	MaxWaitTime        time.Duration `json:"maxWaitTime,omitempty"`
-	LogLevel           LogLevel
-	Logger             Logger
 }
 
 // NewConfiguration returns a new Configuration object
@@ -128,7 +134,7 @@ func NewConfiguration(username, password, token, hostUrl string) *Configuration 
 	cfg := &Configuration{
 		DefaultHeader:      make(map[string]string),
 		DefaultQueryParams: url.Values{},
-		UserAgent:          "ionos-cloud-sdk-go-dbaas-mongo/v1.3.1",
+		UserAgent:          "ionos-cloud-sdk-go-dbaas-mongo/v1.4.0",
 		Debug:              false,
 		Username:           username,
 		Password:           password,

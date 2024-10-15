@@ -78,9 +78,11 @@ func (o *BackupProperties) HasLocation() bool {
 
 func (o BackupProperties) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
+
 	if o.Location != nil {
 		toSerialize["location"] = o.Location
 	}
+
 	return json.Marshal(toSerialize)
 }
 

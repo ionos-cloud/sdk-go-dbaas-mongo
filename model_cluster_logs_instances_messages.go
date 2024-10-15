@@ -127,9 +127,11 @@ func (o ClusterLogsInstancesMessages) MarshalJSON() ([]byte, error) {
 	if o.Time != nil {
 		toSerialize["time"] = o.Time
 	}
+
 	if o.Message != nil {
 		toSerialize["message"] = o.Message
 	}
+
 	return json.Marshal(toSerialize)
 }
 

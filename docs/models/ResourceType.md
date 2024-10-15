@@ -1,16 +1,8 @@
 # ResourceType
 
-The resource type.
+## Properties
 
-## PossibleValues
-|Value |
-|------------ |
-|COLLECTION |
-|CLUSTER |
-|USER |
-|SNAPSHOT |
-|TEMPLATE |
-
-
+|Name | Type | Description | Notes|
+|------------ | ------------- | ------------- | -------------|
 
 

@@ -1,8 +1,5 @@
 # TemplateResponse
 
-A MongoDB template.
-
-
 ## Properties
 
 |Name | Type | Description | Notes|
@@ -14,6 +11,22 @@ A MongoDB template.
 
 ## Methods
 
+### NewTemplateResponse
+
+`func NewTemplateResponse() *TemplateResponse`
+
+NewTemplateResponse instantiates a new TemplateResponse object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewTemplateResponseWithDefaults
+
+`func NewTemplateResponseWithDefaults() *TemplateResponse`
+
+NewTemplateResponseWithDefaults instantiates a new TemplateResponse object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
 
 ### GetType
 
@@ -114,6 +127,5 @@ SetProperties sets Properties field to given value.
 `func (o *TemplateResponse) HasProperties() bool`
 
 HasProperties returns a boolean if a field has been set.
-
 
 

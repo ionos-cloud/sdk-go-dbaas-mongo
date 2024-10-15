@@ -1,8 +1,5 @@
 # UsersList
 
-List of cluster users.
-
-
 ## Properties
 
 |Name | Type | Description | Notes|
@@ -13,6 +10,22 @@ List of cluster users.
 
 ## Methods
 
+### NewUsersList
+
+`func NewUsersList() *UsersList`
+
+NewUsersList instantiates a new UsersList object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewUsersListWithDefaults
+
+`func NewUsersListWithDefaults() *UsersList`
+
+NewUsersListWithDefaults instantiates a new UsersList object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
 
 ### GetType
 
@@ -88,6 +101,5 @@ SetItems sets Items field to given value.
 `func (o *UsersList) HasItems() bool`
 
 HasItems returns a boolean if a field has been set.
-
 
 

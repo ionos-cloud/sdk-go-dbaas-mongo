@@ -1,8 +1,5 @@
 # PaginationLinks
 
-The URLs to navigate the different pages. 
-
-
 ## Properties
 
 |Name | Type | Description | Notes|
@@ -13,6 +10,22 @@ The URLs to navigate the different pages.
 
 ## Methods
 
+### NewPaginationLinks
+
+`func NewPaginationLinks() *PaginationLinks`
+
+NewPaginationLinks instantiates a new PaginationLinks object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewPaginationLinksWithDefaults
+
+`func NewPaginationLinksWithDefaults() *PaginationLinks`
+
+NewPaginationLinksWithDefaults instantiates a new PaginationLinks object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
 
 ### GetPrev
 
@@ -88,6 +101,5 @@ SetNext sets Next field to given value.
 `func (o *PaginationLinks) HasNext() bool`
 
 HasNext returns a boolean if a field has been set.
-
 
 

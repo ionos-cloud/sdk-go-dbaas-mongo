@@ -122,9 +122,11 @@ func (o MaintenanceWindow) MarshalJSON() ([]byte, error) {
 	if o.Time != nil {
 		toSerialize["time"] = o.Time
 	}
+
 	if o.DayOfTheWeek != nil {
 		toSerialize["dayOfTheWeek"] = o.DayOfTheWeek
 	}
+
 	return json.Marshal(toSerialize)
 }
 

@@ -1,18 +1,8 @@
 # DayOfTheWeek
 
-The week day.
+## Properties
 
-## PossibleValues
-|Value |
-|------------ |
-|SUNDAY |
-|MONDAY |
-|TUESDAY |
-|WEDNESDAY |
-|THURSDAY |
-|FRIDAY |
-|SATURDAY |
-
-
+|Name | Type | Description | Notes|
+|------------ | ------------- | ------------- | -------------|
 
 

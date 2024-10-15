@@ -1,7 +1,5 @@
 # ClusterLogsInstancesMessages
 
-
-
 ## Properties
 
 |Name | Type | Description | Notes|
@@ -11,6 +9,22 @@
 
 ## Methods
 
+### NewClusterLogsInstancesMessages
+
+`func NewClusterLogsInstancesMessages() *ClusterLogsInstancesMessages`
+
+NewClusterLogsInstancesMessages instantiates a new ClusterLogsInstancesMessages object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewClusterLogsInstancesMessagesWithDefaults
+
+`func NewClusterLogsInstancesMessagesWithDefaults() *ClusterLogsInstancesMessages`
+
+NewClusterLogsInstancesMessagesWithDefaults instantiates a new ClusterLogsInstancesMessages object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
 
 ### GetTime
 
@@ -61,6 +75,5 @@ SetMessage sets Message field to given value.
 `func (o *ClusterLogsInstancesMessages) HasMessage() bool`
 
 HasMessage returns a boolean if a field has been set.
-
 
 

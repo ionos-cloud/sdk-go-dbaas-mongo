@@ -169,12 +169,15 @@ func (o Pagination) MarshalJSON() ([]byte, error) {
 	if o.Offset != nil {
 		toSerialize["offset"] = o.Offset
 	}
+
 	if o.Limit != nil {
 		toSerialize["limit"] = o.Limit
 	}
+
 	if o.Links != nil {
 		toSerialize["_links"] = o.Links
 	}
+
 	return json.Marshal(toSerialize)
 }
 

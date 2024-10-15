@@ -119,9 +119,11 @@ func (o PatchUserProperties) MarshalJSON() ([]byte, error) {
 	if o.Password != nil {
 		toSerialize["password"] = o.Password
 	}
+
 	if o.Roles != nil {
 		toSerialize["roles"] = o.Roles
 	}
+
 	return json.Marshal(toSerialize)
 }
 

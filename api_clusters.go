@@ -13,7 +13,7 @@ package ionoscloud
 import (
 	_context "context"
 	"fmt"
-	_ioutil "io/ioutil"
+	"io"
 	_nethttp "net/http"
 	_neturl "net/url"
 	"strings"
@@ -114,20 +114,21 @@ func (a *ClustersApiService) ClustersDeleteExecute(r ApiClustersDeleteRequest) (
 		return localVarReturnValue, nil, err
 	}
 
-	localVarHTTPResponse, err := a.client.callAPI(req)
+	localVarHTTPResponse, httpRequestTime, err := a.client.callAPI(req)
 
 	localVarAPIResponse := &APIResponse{
-		Response:   localVarHTTPResponse,
-		Method:     localVarHTTPMethod,
-		RequestURL: localVarPath,
-		Operation:  "ClustersDelete",
+		Response:    localVarHTTPResponse,
+		Method:      localVarHTTPMethod,
+		RequestTime: httpRequestTime,
+		RequestURL:  localVarPath,
+		Operation:   "ClustersDelete",
 	}
 
 	if err != nil || localVarHTTPResponse == nil {
 		return localVarReturnValue, localVarAPIResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
 	localVarAPIResponse.Payload = localVarBody
 	if err != nil {
@@ -250,20 +251,21 @@ func (a *ClustersApiService) ClustersFindByIdExecute(r ApiClustersFindByIdReques
 		return localVarReturnValue, nil, err
 	}
 
-	localVarHTTPResponse, err := a.client.callAPI(req)
+	localVarHTTPResponse, httpRequestTime, err := a.client.callAPI(req)
 
 	localVarAPIResponse := &APIResponse{
-		Response:   localVarHTTPResponse,
-		Method:     localVarHTTPMethod,
-		RequestURL: localVarPath,
-		Operation:  "ClustersFindById",
+		Response:    localVarHTTPResponse,
+		Method:      localVarHTTPMethod,
+		RequestTime: httpRequestTime,
+		RequestURL:  localVarPath,
+		Operation:   "ClustersFindById",
 	}
 
 	if err != nil || localVarHTTPResponse == nil {
 		return localVarReturnValue, localVarAPIResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
 	localVarAPIResponse.Payload = localVarBody
 	if err != nil {
@@ -407,20 +409,21 @@ func (a *ClustersApiService) ClustersGetExecute(r ApiClustersGetRequest) (Cluste
 		return localVarReturnValue, nil, err
 	}
 
-	localVarHTTPResponse, err := a.client.callAPI(req)
+	localVarHTTPResponse, httpRequestTime, err := a.client.callAPI(req)
 
 	localVarAPIResponse := &APIResponse{
-		Response:   localVarHTTPResponse,
-		Method:     localVarHTTPMethod,
-		RequestURL: localVarPath,
-		Operation:  "ClustersGet",
+		Response:    localVarHTTPResponse,
+		Method:      localVarHTTPMethod,
+		RequestTime: httpRequestTime,
+		RequestURL:  localVarPath,
+		Operation:   "ClustersGet",
 	}
 
 	if err != nil || localVarHTTPResponse == nil {
 		return localVarReturnValue, localVarAPIResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
 	localVarAPIResponse.Payload = localVarBody
 	if err != nil {
@@ -554,20 +557,21 @@ func (a *ClustersApiService) ClustersPatchExecute(r ApiClustersPatchRequest) (Cl
 		return localVarReturnValue, nil, err
 	}
 
-	localVarHTTPResponse, err := a.client.callAPI(req)
+	localVarHTTPResponse, httpRequestTime, err := a.client.callAPI(req)
 
 	localVarAPIResponse := &APIResponse{
-		Response:   localVarHTTPResponse,
-		Method:     localVarHTTPMethod,
-		RequestURL: localVarPath,
-		Operation:  "ClustersPatch",
+		Response:    localVarHTTPResponse,
+		Method:      localVarHTTPMethod,
+		RequestTime: httpRequestTime,
+		RequestURL:  localVarPath,
+		Operation:   "ClustersPatch",
 	}
 
 	if err != nil || localVarHTTPResponse == nil {
 		return localVarReturnValue, localVarAPIResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
 	localVarAPIResponse.Payload = localVarBody
 	if err != nil {
@@ -698,20 +702,21 @@ func (a *ClustersApiService) ClustersPostExecute(r ApiClustersPostRequest) (Clus
 		return localVarReturnValue, nil, err
 	}
 
-	localVarHTTPResponse, err := a.client.callAPI(req)
+	localVarHTTPResponse, httpRequestTime, err := a.client.callAPI(req)
 
 	localVarAPIResponse := &APIResponse{
-		Response:   localVarHTTPResponse,
-		Method:     localVarHTTPMethod,
-		RequestURL: localVarPath,
-		Operation:  "ClustersPost",
+		Response:    localVarHTTPResponse,
+		Method:      localVarHTTPMethod,
+		RequestTime: httpRequestTime,
+		RequestURL:  localVarPath,
+		Operation:   "ClustersPost",
 	}
 
 	if err != nil || localVarHTTPResponse == nil {
 		return localVarReturnValue, localVarAPIResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
 	localVarAPIResponse.Payload = localVarBody
 	if err != nil {

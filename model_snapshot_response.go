@@ -159,12 +159,15 @@ func (o SnapshotResponse) MarshalJSON() ([]byte, error) {
 	if o.Type != nil {
 		toSerialize["type"] = o.Type
 	}
+
 	if o.Id != nil {
 		toSerialize["id"] = o.Id
 	}
+
 	if o.Properties != nil {
 		toSerialize["properties"] = o.Properties
 	}
+
 	return json.Marshal(toSerialize)
 }
 

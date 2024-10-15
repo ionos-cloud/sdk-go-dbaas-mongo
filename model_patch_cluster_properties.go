@@ -596,45 +596,59 @@ func (o PatchClusterProperties) MarshalJSON() ([]byte, error) {
 	if o.Type != nil {
 		toSerialize["type"] = o.Type
 	}
+
 	if o.DisplayName != nil {
 		toSerialize["displayName"] = o.DisplayName
 	}
+
 	if o.MaintenanceWindow != nil {
 		toSerialize["maintenanceWindow"] = o.MaintenanceWindow
 	}
+
 	if o.Instances != nil {
 		toSerialize["instances"] = o.Instances
 	}
+
 	if o.Shards != nil {
 		toSerialize["shards"] = o.Shards
 	}
+
 	if o.Backup != nil {
 		toSerialize["backup"] = o.Backup
 	}
+
 	if o.BiConnector != nil {
 		toSerialize["biConnector"] = o.BiConnector
 	}
+
 	if o.Connections != nil {
 		toSerialize["connections"] = o.Connections
 	}
+
 	if o.TemplateID != nil {
 		toSerialize["templateID"] = o.TemplateID
 	}
+
 	if o.Edition != nil {
 		toSerialize["edition"] = o.Edition
 	}
+
 	if o.Cores != nil {
 		toSerialize["cores"] = o.Cores
 	}
+
 	if o.Ram != nil {
 		toSerialize["ram"] = o.Ram
 	}
+
 	if o.StorageSize != nil {
 		toSerialize["storageSize"] = o.StorageSize
 	}
+
 	if o.StorageType != nil {
 		toSerialize["storageType"] = o.StorageType
 	}
+
 	return json.Marshal(toSerialize)
 }
 

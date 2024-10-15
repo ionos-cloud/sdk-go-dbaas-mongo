@@ -159,12 +159,15 @@ func (o UsersList) MarshalJSON() ([]byte, error) {
 	if o.Type != nil {
 		toSerialize["type"] = o.Type
 	}
+
 	if o.Id != nil {
 		toSerialize["id"] = o.Id
 	}
+
 	if o.Items != nil {
 		toSerialize["items"] = o.Items
 	}
+
 	return json.Marshal(toSerialize)
 }
 

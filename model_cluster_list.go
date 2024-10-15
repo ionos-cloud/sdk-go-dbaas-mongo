@@ -287,21 +287,27 @@ func (o ClusterList) MarshalJSON() ([]byte, error) {
 	if o.Type != nil {
 		toSerialize["type"] = o.Type
 	}
+
 	if o.Id != nil {
 		toSerialize["id"] = o.Id
 	}
+
 	if o.Items != nil {
 		toSerialize["items"] = o.Items
 	}
+
 	if o.Offset != nil {
 		toSerialize["offset"] = o.Offset
 	}
+
 	if o.Limit != nil {
 		toSerialize["limit"] = o.Limit
 	}
+
 	if o.Links != nil {
 		toSerialize["_links"] = o.Links
 	}
+
 	return json.Marshal(toSerialize)
 }
 

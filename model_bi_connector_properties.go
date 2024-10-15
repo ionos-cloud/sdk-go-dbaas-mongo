@@ -166,12 +166,15 @@ func (o BiConnectorProperties) MarshalJSON() ([]byte, error) {
 	if o.Enabled != nil {
 		toSerialize["enabled"] = o.Enabled
 	}
+
 	if o.Host != nil {
 		toSerialize["host"] = o.Host
 	}
+
 	if o.Port != nil {
 		toSerialize["port"] = o.Port
 	}
+
 	return json.Marshal(toSerialize)
 }
 

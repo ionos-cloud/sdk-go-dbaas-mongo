@@ -1,8 +1,5 @@
 # TemplateList
 
-List of MongoDB templates.
-
-
 ## Properties
 
 |Name | Type | Description | Notes|
@@ -16,6 +13,22 @@ List of MongoDB templates.
 
 ## Methods
 
+### NewTemplateList
+
+`func NewTemplateList() *TemplateList`
+
+NewTemplateList instantiates a new TemplateList object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewTemplateListWithDefaults
+
+`func NewTemplateListWithDefaults() *TemplateList`
+
+NewTemplateListWithDefaults instantiates a new TemplateList object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
 
 ### GetType
 
@@ -166,6 +179,5 @@ SetLinks sets Links field to given value.
 `func (o *TemplateList) HasLinks() bool`
 
 HasLinks returns a boolean if a field has been set.
-
 
 

@@ -41,7 +41,7 @@ func main() {
 
     configuration := ionoscloud.NewConfiguration("USERNAME", "PASSWORD", "TOKEN", "HOST_URL")
     apiClient := ionoscloud.NewAPIClient(configuration)
-    resource, resp, err := apiClient.ClustersApi.ClustersDelete(context.Background(), clusterId).Execute()
+    resp, err := apiClient.ClustersApi.ClustersDelete(context.Background(), clusterId).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ClustersApi.ClustersDelete``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", resp)
@@ -76,6 +76,22 @@ Other parameters are passed through a pointer to an apiClustersDeleteRequest str
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
+
+### URLs Configuration per Operation
+Each operation can use different server URL defined using `OperationServers` map in the `Configuration`.
+An operation is uniquely identified by `"ClustersApiService.ClustersDelete"` string.
+Similar rules for overriding default operation server index and variables apply by using `sw.ContextOperationServerIndices` and `sw.ContextOperationServerVariables` context maps.
+
+```golang
+ctx := context.WithValue(context.Background(), {packageName}.ContextOperationServerIndices, map[string]int{
+    "ClustersApiService.ClustersDelete": 2,
+})
+ctx = context.WithValue(context.Background(), {packageName}.ContextOperationServerVariables, map[string]map[string]string{
+    "ClustersApiService.ClustersDelete": {
+    "port": "8443",
+},
+})
+```
 
 
 ## ClustersFindById
@@ -142,6 +158,22 @@ Other parameters are passed through a pointer to an apiClustersFindByIdRequest s
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
+
+### URLs Configuration per Operation
+Each operation can use different server URL defined using `OperationServers` map in the `Configuration`.
+An operation is uniquely identified by `"ClustersApiService.ClustersFindById"` string.
+Similar rules for overriding default operation server index and variables apply by using `sw.ContextOperationServerIndices` and `sw.ContextOperationServerVariables` context maps.
+
+```golang
+ctx := context.WithValue(context.Background(), {packageName}.ContextOperationServerIndices, map[string]int{
+    "ClustersApiService.ClustersFindById": 2,
+})
+ctx = context.WithValue(context.Background(), {packageName}.ContextOperationServerVariables, map[string]map[string]string{
+    "ClustersApiService.ClustersFindById": {
+    "port": "8443",
+},
+})
+```
 
 
 ## ClustersGet
@@ -213,6 +245,22 @@ Other parameters are passed through a pointer to an apiClustersGetRequest struct
 - **Accept**: application/json
 
 
+### URLs Configuration per Operation
+Each operation can use different server URL defined using `OperationServers` map in the `Configuration`.
+An operation is uniquely identified by `"ClustersApiService.ClustersGet"` string.
+Similar rules for overriding default operation server index and variables apply by using `sw.ContextOperationServerIndices` and `sw.ContextOperationServerVariables` context maps.
+
+```golang
+ctx := context.WithValue(context.Background(), {packageName}.ContextOperationServerIndices, map[string]int{
+    "ClustersApiService.ClustersGet": 2,
+})
+ctx = context.WithValue(context.Background(), {packageName}.ContextOperationServerVariables, map[string]map[string]string{
+    "ClustersApiService.ClustersGet": {
+    "port": "8443",
+},
+})
+```
+
 
 ## ClustersPatch
 
@@ -282,6 +330,22 @@ Other parameters are passed through a pointer to an apiClustersPatchRequest stru
 - **Accept**: application/json
 
 
+### URLs Configuration per Operation
+Each operation can use different server URL defined using `OperationServers` map in the `Configuration`.
+An operation is uniquely identified by `"ClustersApiService.ClustersPatch"` string.
+Similar rules for overriding default operation server index and variables apply by using `sw.ContextOperationServerIndices` and `sw.ContextOperationServerVariables` context maps.
+
+```golang
+ctx := context.WithValue(context.Background(), {packageName}.ContextOperationServerIndices, map[string]int{
+    "ClustersApiService.ClustersPatch": 2,
+})
+ctx = context.WithValue(context.Background(), {packageName}.ContextOperationServerVariables, map[string]map[string]string{
+    "ClustersApiService.ClustersPatch": {
+    "port": "8443",
+},
+})
+```
+
 
 ## ClustersPost
 
@@ -345,4 +409,20 @@ Other parameters are passed through a pointer to an apiClustersPostRequest struc
 - **Content-Type**: application/json
 - **Accept**: application/json
 
+
+### URLs Configuration per Operation
+Each operation can use different server URL defined using `OperationServers` map in the `Configuration`.
+An operation is uniquely identified by `"ClustersApiService.ClustersPost"` string.
+Similar rules for overriding default operation server index and variables apply by using `sw.ContextOperationServerIndices` and `sw.ContextOperationServerVariables` context maps.
+
+```golang
+ctx := context.WithValue(context.Background(), {packageName}.ContextOperationServerIndices, map[string]int{
+    "ClustersApiService.ClustersPost": 2,
+})
+ctx = context.WithValue(context.Background(), {packageName}.ContextOperationServerVariables, map[string]map[string]string{
+    "ClustersApiService.ClustersPost": {
+    "port": "8443",
+},
+})
+```
 

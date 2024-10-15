@@ -1,8 +1,5 @@
 # TemplateProperties
 
-The properties of a MongoDB template.
-
-
 ## Properties
 
 |Name | Type | Description | Notes|
@@ -15,6 +12,22 @@ The properties of a MongoDB template.
 
 ## Methods
 
+### NewTemplateProperties
+
+`func NewTemplateProperties() *TemplateProperties`
+
+NewTemplateProperties instantiates a new TemplateProperties object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewTemplatePropertiesWithDefaults
+
+`func NewTemplatePropertiesWithDefaults() *TemplateProperties`
+
+NewTemplatePropertiesWithDefaults instantiates a new TemplateProperties object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
 
 ### GetName
 
@@ -140,6 +153,5 @@ SetStorageSize sets StorageSize field to given value.
 `func (o *TemplateProperties) HasStorageSize() bool`
 
 HasStorageSize returns a boolean if a field has been set.
-
 
 

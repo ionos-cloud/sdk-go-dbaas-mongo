@@ -1,7 +1,5 @@
 # ErrorResponse
 
-
-
 ## Properties
 
 |Name | Type | Description | Notes|
@@ -11,6 +9,22 @@
 
 ## Methods
 
+### NewErrorResponse
+
+`func NewErrorResponse() *ErrorResponse`
+
+NewErrorResponse instantiates a new ErrorResponse object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewErrorResponseWithDefaults
+
+`func NewErrorResponseWithDefaults() *ErrorResponse`
+
+NewErrorResponseWithDefaults instantiates a new ErrorResponse object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
 
 ### GetHttpStatus
 
@@ -61,6 +75,5 @@ SetMessages sets Messages field to given value.
 `func (o *ErrorResponse) HasMessages() bool`
 
 HasMessages returns a boolean if a field has been set.
-
 
 
